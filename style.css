@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.4.1 | MIT License | https://tailwindcss.com
+! tailwindcss v3.4.3 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -211,6 +211,8 @@ textarea {
   /* 1 */
   line-height: inherit;
   /* 1 */
+  letter-spacing: inherit;
+  /* 1 */
   color: inherit;
   /* 1 */
   margin: 0;
@@ -234,9 +236,9 @@ select {
 */
 
 button,
-[type='button'],
-[type='reset'],
-[type='submit'] {
+input:where([type='button']),
+input:where([type='reset']),
+input:where([type='submit']) {
   -webkit-appearance: button;
   /* 1 */
   background-color: transparent;
@@ -492,6 +494,10 @@ video {
   --tw-backdrop-opacity:  ;
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
+  --tw-contain-size:  ;
+  --tw-contain-layout:  ;
+  --tw-contain-paint:  ;
+  --tw-contain-style:  ;
 }
 
 ::backdrop {
@@ -542,6 +548,10 @@ video {
   --tw-backdrop-opacity:  ;
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
+  --tw-contain-size:  ;
+  --tw-contain-layout:  ;
+  --tw-contain-paint:  ;
+  --tw-contain-style:  ;
 }
 
 .mx-auto {
@@ -559,10 +569,6 @@ video {
 
 .mt-2 {
   margin-top: 0.5rem;
-}
-
-.block {
-  display: block;
 }
 
 .flex {
@@ -661,24 +667,8 @@ video {
   padding: 1.25rem;
 }
 
-.p-\[1px\] {
-  padding: 1px;
-}
-
 .p-\[4px\] {
   padding: 4px;
-}
-
-.p-\[0px\] {
-  padding: 0px;
-}
-
-.p-\[0\.5px\] {
-  padding: 0.5px;
-}
-
-.p-\[px\] {
-  padding: px;
 }
 
 .text-center {
@@ -740,11 +730,6 @@ video {
     height: min-content;
   }
 
-  .md\:h-fit {
-    height: -moz-fit-content;
-    height: fit-content;
-  }
-
   .md\:w-80 {
     width: 20rem;
   }
@@ -752,15 +737,6 @@ video {
   .md\:w-min {
     width: -moz-min-content;
     width: min-content;
-  }
-
-  .md\:w-fit {
-    width: -moz-fit-content;
-    width: fit-content;
-  }
-
-  .md\:w-56 {
-    width: 14rem;
   }
 
   .md\:rounded-sm {
@@ -790,6 +766,10 @@ video {
     background-color: rgb(255 255 255 / var(--tw-bg-opacity));
   }
 
+  .md\:p-0 {
+    padding: 0px;
+  }
+
   .md\:p-3 {
     padding: 0.75rem;
   }
@@ -800,18 +780,6 @@ video {
 
   .md\:p-\[6px\] {
     padding: 6px;
-  }
-
-  .md\:p-\[0px\] {
-    padding: 0px;
-  }
-
-  .md\:p-\[0\.5px\] {
-    padding: 0.5px;
-  }
-
-  .md\:p-0 {
-    padding: 0px;
   }
 
   .md\:text-sm {

@@ -121,6 +121,9 @@ function addExpense() {
     alert("Please fill in all fields and provide a valid amount.");
     return;
   }
+  document.getElementById("name").value = "";
+  document.getElementById("date").value = "";
+  document.getElementById("amt").value = "";
 
   updateBalances();
   updateLocalStorage();
@@ -141,6 +144,10 @@ function addIncome() {
     alert("Please fill in all fields and provide a valid amount.");
     return;
   }
+
+  document.getElementById("name").value = "";
+  document.getElementById("date").value = "";
+  document.getElementById("amt").value = "";
 
   updateBalances();
   updateLocalStorage();
