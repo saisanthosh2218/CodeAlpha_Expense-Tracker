@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Expense Tracker</title>
+  </head>
+  <body>
+    <div
+      class="main-div md:mx-auto md:w-min md:mt-8 md:p-3 p-3 md:rounded-sm md:h-min border md:bg-slate-100 bg-slate-200 md:border-none"
+    >
+      <!-- Amount div Starts Here  -->
+      <div
+        class="total-amt bg-blue-600 w-72 mx-auto md:w-80 md:mx-auto md:mb-2 rounded-md mb-2 p-5 md:p-3"
+      >
+        <div class="text-center balance-amt">
+          <p class="text-lg text-white font-semibold">Total Balance</p>
+          <p class="font-semibold" id="totalBalance">$0.00</p>
+        </div>
+        <div class="total-bal-below-div flex justify-between items-center">
+          <div class="income-div">
+            <p class="font-semibold">Income</p>
+            <p class="text-white" id="incomeBalance">$0.00</p>
+          </div>
+          <div class="expense-div">
+            <p class="font-semibold">Expense</p>
+            <p class="text-white" id="expenseBalance">$-0.00</p>
+          </div>
+        </div>
+      </div>
+      <!-- Amount div Ends Here -->
+
+      <!-- Transaction Starts Here -->
+      <div class="transactions-div md:text-sm" id="transactionList">
+        <!-- <p class="font-semibold text-2xl mb-1">Transactions</p> -->
+      </div>
+      <!-- Transaction Ends Here -->
+
+      <!-- Add Transaction Starts Here -->
+      <div class="add trans-div">
+        <!--  Transaction Starts Here -->
+
+        <!-- Add Transaction Ends here -->
+        <!-- Inputs Start Here -->
+        <div>
+          <div class="md:flex mb-2 space-x-1">
+            <div>
+              <label for="name" class="text-center font-semibold">Name</label>
+              <div class="md:mx-auto mx-auto flex md:flex justify-center">
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  class="rounded-sm md:border md:border-black outline-none md:p-[1px]"
+                />
+              </div>
+            </div>
+            <div>
+              <label for="date" class="text-center font-semibold">Date</label>
+              <div class="md:mx-auto mx-auto flex md:flex justify-center">
+                <input
+                  type="date"
+                  name="date"
+                  id="date"
+                  class="rounded-sm md:border md:border-black border-black border-solid border w-44 md:p-0"
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <label
+              for="amt"
+              class="md:block justify-center text-center font-semibold"
+              >Amount</label
+            >
+            <div class="md:mx-auto mx-auto flex justify-center">
+              <input
+                type="number"
+                name="amt"
+                id="amt"
+                class="rounded-sm md:border md:border-black outline-none md:p-[1px]"
+              />
+            </div>
+          </div>
+        </div>
+        <!-- Inputs End Here -->
+        <div
+          class="exp-inc md:flex flex justify-around items-center md:border md:mt-2 mt-2 md:p-[6px] p-2 rounded-md bg-slate-300 md:bg-white"
+        >
+          <div>
+            <p
+              class="bg-red-500 font-semibold text-white rounded-md md:hover:cursor-pointer p-[4px] w-[135px] text-center"
+              onclick="addExpense()"
+            >
+              Add To Expenses
+            </p>
+          </div>
+          <div>
+            <p
+              class="bg-green-500 font-semibold text-white rounded-md md:hover:cursor-pointer p-[4px] w-[135px] text-center"
+              onclick="addIncome()"
+            >
+              Add To Income
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- Transaction Ends Here -->
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
