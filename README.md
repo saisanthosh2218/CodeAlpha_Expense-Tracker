@@ -22,11 +22,11 @@
         <li>Clone the repository:</li>
     </ol>
     <code>git clone https://github.com/yourusername/expense-tracker.git</code>
-    <ol >
+    <ol start="2">
         <li>Navigate to the project directory:</li>
     </ol>
     <code>cd expense-tracker</code>
-    <ol >
+    <ol start="3">
         <li>Open <code>index.html</code> in your web browser.</li>
     </ol>
 
