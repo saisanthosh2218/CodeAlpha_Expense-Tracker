@@ -11,7 +11,7 @@ Expense Tracker is a web application designed to help users efficiently manage t
 
 ## Demo
 
-You can access the live demo of the Weather App [Here](https://gssk-expense-tracker.netlify.app/).
+You can access the live demo of the Expense Tracker [Here](https://gssk-expense-tracker.netlify.app/).
 
 ## Technologies Used
 
