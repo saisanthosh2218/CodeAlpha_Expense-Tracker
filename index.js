@@ -15,6 +15,7 @@ function updateBalances() {
   ).textContent = `$${expenseBalance.toFixed(2)}`;
 }
 
+// Uodate Local Storage
 function updateLocalStorage() {
   localStorage.setItem("totalBalance", totalBalance.toFixed(2));
   localStorage.setItem("incomeBalance", incomeBalance.toFixed(2));
@@ -22,6 +23,7 @@ function updateLocalStorage() {
   localStorage.setItem("transactions", JSON.stringify(transactions));
 }
 
+// Get or Load From Local Storage
 function renderTransactions() {
   const transactionList = document.getElementById("transactionList");
   if (!transactionList) {
@@ -64,7 +66,7 @@ function renderTransactions() {
     transactionList.appendChild(transactionItem);
   });
 }
-
+// Edit and Update Transactions Function
 function editTransaction(id) {
   const transaction = transactions.find((t) => t.id === id);
   if (!transaction) return;
@@ -74,17 +76,21 @@ function editTransaction(id) {
   const newAmount = parseFloat(prompt("Enter new amount:", transaction.amount));
 
   if (newName !== null && newDate !== null && !isNaN(newAmount)) {
+    // Calculate the difference between the old and new amount
+    const amountDifference = newAmount - transaction.amount;
+
+    // Update transaction details
     transaction.name = newName;
     transaction.date = newDate;
     transaction.amount = newAmount;
 
-    // Update balances
+    // Update balances based on the transaction type
     if (transaction.type === "Expense") {
-      totalBalance -= transaction.amount;
-      expenseBalance -= transaction.amount;
+      totalBalance -= amountDifference; // Subtract difference for total balance
+      expenseBalance -= amountDifference; // Adjust expense balance accordingly
     } else {
-      totalBalance += transaction.amount;
-      incomeBalance += transaction.amount;
+      totalBalance += amountDifference; // Add difference for total balance
+      incomeBalance += amountDifference; // Adjust income balance accordingly
     }
 
     // Update the transaction amount displayed
@@ -92,14 +98,17 @@ function editTransaction(id) {
     if (amountElement) {
       amountElement.textContent =
         transaction.type === "Expense"
-          ? "-$" + Math.abs(transaction.amount).toFixed(2)
-          : "$" + transaction.amount.toFixed(2);
+          ? "₹" + Math.abs(transaction.amount).toFixed(2)
+          : "₹" + transaction.amount.toFixed(2);
     }
 
     updateBalances();
     updateLocalStorage();
+    renderTransactions();
   }
 }
+
+// Add Expense Function
 
 function addExpense() {
   const name = document.getElementById("name").value;
@@ -130,6 +139,8 @@ function addExpense() {
   renderTransactions();
 }
 
+// Add Income Function
+
 function addIncome() {
   const name = document.getElementById("name").value;
   const date = document.getElementById("date").value;
@@ -153,6 +164,8 @@ function addIncome() {
   updateLocalStorage();
   renderTransactions();
 }
+
+// Delete Transactions Function
 
 function deleteTransaction(id) {
   transactions = transactions.filter((transaction) => transaction.id !== id);
